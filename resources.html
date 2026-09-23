@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Полезные ресурсы — PWA.Учебник</title>
+<meta name="description" content="Подборка документации, статей, инструментов и курсов по прогрессивным веб-приложениям.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E3A5F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/marx-css/css/marx.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к основному содержанию</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="logo" href="index.html">
+      <img class="logo__mark" src="images/logo.svg" alt="" width="36" height="36">
+      <span class="logo__text">PWA.Учебник<small>прогрессивные веб-приложения</small></span>
+    </a>
+    <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Основная навигация">
+      <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+          <li class="nav__item"><a class="nav__link" href="history.html">История</a></li>
+          <li class="nav__item"><a class="nav__link" href="technologies.html">Технологии</a></li>
+          <li class="nav__item"><a class="nav__link" href="architecture.html">Архитектура</a></li>
+          <li class="nav__item"><a class="nav__link" href="advantages.html">Плюсы и минусы</a></li>
+          <li class="nav__item"><a class="nav__link" href="examples.html">Примеры</a></li>
+          <li class="nav__item"><a class="nav__link" href="development.html">Разработка</a></li>
+          <li class="nav__item"><a class="nav__link" href="testing.html">Тестирование</a></li>
+          <li class="nav__item"><a class="nav__link nav__link--active" href="resources.html" aria-current="page">Ресурсы</a></li>
+          <li class="nav__item"><a class="nav__link" href="contact.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="layout layout--aside-left">
+<div class="layout__main">
+
+<section>
+  <span class="eyebrow">Ресурсы</span>
+  <h1>Документация, статьи и инструменты по PWA</h1>
+  <p>Подборка внешних материалов для тех, кто хочет углубиться в тему. Используйте фильтр, чтобы отобрать ресурсы нужного типа.</p>
+</section>
+
+<div class="tag-filter" role="group" aria-label="Фильтр по типу ресурса">
+  <button class="tag-filter__btn is-active" data-filter="all" type="button">Все</button>
+  <button class="tag-filter__btn" data-filter="docs" type="button">Документация</button>
+  <button class="tag-filter__btn" data-filter="articles" type="button">Статьи</button>
+  <button class="tag-filter__btn" data-filter="tools" type="button">Инструменты</button>
+  <button class="tag-filter__btn" data-filter="courses" type="button">Курсы</button>
+</div>
+
+<ul style="list-style:none;padding:0;margin:0">
+  <li class="card" data-category="docs" style="margin-bottom:16px">
+    <span class="badge">Документация</span>
+    <h3>MDN Web Docs — Progressive web apps</h3>
+    <p>Официальная документация Mozilla с описанием всех API, использующихся в PWA: Service Worker, Cache API, Manifest.</p>
+  </li>
+  <li class="card card--accent2" data-category="docs" style="margin-bottom:16px">
+    <span class="badge badge--amber">Документация</span>
+    <h3>web.dev / learn/pwa — Google</h3>
+    <p>Структурированный курс от команды Chrome с практическими примерами и разбором чек-листа установки.</p>
+  </li>
+  <li class="card card--primary" data-category="articles" style="margin-bottom:16px">
+    <span class="badge">Статья</span>
+    <h3>«Что такое Progressive Web Apps» — обзорная статья</h3>
+    <p>Популярное объяснение концепции PWA простыми словами, с примерами использования для бизнеса.</p>
+  </li>
+  <li class="card" data-category="articles" style="margin-bottom:16px">
+    <span class="badge">Статья</span>
+    <h3>Разбор кейсов внедрения PWA</h3>
+    <p>Серия материалов о результатах перехода на PWA у Twitter, Starbucks, Pinterest и других сервисов.</p>
+  </li>
+  <li class="card card--accent2" data-category="tools" style="margin-bottom:16px">
+    <span class="badge badge--amber">Инструмент</span>
+    <h3>Lighthouse</h3>
+    <p>Встроенный в Chrome DevTools аудит производительности, доступности и соответствия критериям PWA.</p>
+  </li>
+  <li class="card card--accent2" data-category="tools" style="margin-bottom:16px">
+    <span class="badge badge--amber">Инструмент</span>
+    <h3>PWA Builder</h3>
+    <p>Сервис для генерации манифеста, иконок и упаковки готового PWA под разные платформы.</p>
+  </li>
+  <li class="card card--primary" data-category="courses" style="margin-bottom:16px">
+    <span class="badge">Курс</span>
+    <h3>«Основы Service Worker» — практический курс</h3>
+    <p>Пошаговый онлайн-курс с заданиями по написанию собственного Service Worker и стратегий кэширования.</p>
+  </li>
+</ul>
+
+</div>
+<aside class="layout__aside" aria-label="Дополнительная информация">
+
+<div class="sidebar__block">
+  <p class="sidebar__title">Предложить ресурс</p>
+  <p class="text-muted" style="margin-top:0">Знаете полезную статью или инструмент по теме PWA? Поделитесь ссылкой — форма демонстрационная.</p>
+  <form class="subscribe-form" aria-label="Форма предложения ресурса">
+    <label for="res-link" class="visually-hidden">Ссылка на ресурс</label>
+    <input type="url" id="res-link" name="res-link" placeholder="https://example.com/статья" required>
+    <button class="btn" type="submit">Отправить ссылку</button>
+  </form>
+</div>
+<div class="sidebar__block">
+  <p class="sidebar__title">Смотрите также</p>
+  <ul class="sidebar__list">
+    <li><a href="examples.html">Разбор реальных примеров PWA</a></li>
+    <li><a href="testing.html">Инструменты тестирования</a></li>
+  </ul>
+</div>
+
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <p class="footer__title">PWA.Учебник</p>
+        <p>Учебный сайт о прогрессивных веб-приложениях: теория, технологии, практика разработки и тестирования. Материалы подготовлены как курсовой проект по фронтенд-разработке.</p>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Разделы</p>
+        <ul class="footer__list">
+          <li><a href="technologies.html">Технологии</a></li>
+          <li><a href="architecture.html">Архитектура</a></li>
+          <li><a href="development.html">Разработка</a></li>
+          <li><a href="testing.html">Тестирование</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Ресурсы</p>
+        <ul class="footer__list">
+          <li><a href="examples.html">Примеры PWA</a></li>
+          <li><a href="resources.html">Полезные ссылки</a></li>
+          <li><a href="advantages.html">Плюсы и минусы</a></li>
+          <li><a href="history.html">История PWA</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Контакты</p>
+        <ul class="footer__list">
+          <li><a href="mailto:study-project@example.com">study-project@example.com</a></li>
+          <li><a href="contact.html">Форма обратной связи</a></li>
+          <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub репозиторий</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; <span data-year>2026</span> Учебный проект «PWA.Учебник». Материал подготовлен в образовательных целях.</span>
+      <span>Фреймворк вёрстки: Marx CSS</span>
+    </div>
+  </div>
+</footer>
+<script src="js/script.js" defer></script>
+</body>
+</html>

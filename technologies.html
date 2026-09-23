@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Технологии PWA — PWA.Учебник</title>
+<meta name="description" content="Service Worker, Web App Manifest, Cache API и Push API — ключевые браузерные технологии, лежащие в основе прогрессивных веб-приложений.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E3A5F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/marx-css/css/marx.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к основному содержанию</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="logo" href="index.html">
+      <img class="logo__mark" src="images/logo.svg" alt="" width="36" height="36">
+      <span class="logo__text">PWA.Учебник<small>прогрессивные веб-приложения</small></span>
+    </a>
+    <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Основная навигация">
+      <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+          <li class="nav__item"><a class="nav__link" href="history.html">История</a></li>
+          <li class="nav__item"><a class="nav__link nav__link--active" href="technologies.html" aria-current="page">Технологии</a></li>
+          <li class="nav__item"><a class="nav__link" href="architecture.html">Архитектура</a></li>
+          <li class="nav__item"><a class="nav__link" href="advantages.html">Плюсы и минусы</a></li>
+          <li class="nav__item"><a class="nav__link" href="examples.html">Примеры</a></li>
+          <li class="nav__item"><a class="nav__link" href="development.html">Разработка</a></li>
+          <li class="nav__item"><a class="nav__link" href="testing.html">Тестирование</a></li>
+          <li class="nav__item"><a class="nav__link" href="resources.html">Ресурсы</a></li>
+          <li class="nav__item"><a class="nav__link" href="contact.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="layout">
+<div class="layout__main">
+
+<section>
+  <span class="eyebrow">Технологии</span>
+  <h1>Из чего состоит прогрессивное веб-приложение</h1>
+  <p>PWA не требует нового языка программирования — она строится на нескольких браузерных API, работающих поверх обычных HTML, CSS и JavaScript. Ниже — четыре технологии, без которых сайт не сможет называться прогрессивным веб-приложением.</p>
+</section>
+
+<section class="card-grid card-grid--2">
+  <article class="card">
+    <h3>Service Worker</h3>
+    <p>Фоновый скрипт, который браузер запускает отдельно от страницы. Он перехватывает сетевые запросы, решает — отдать ответ из кэша или сходить в сеть, — и продолжает работать, даже когда вкладка с сайтом закрыта. Именно Service Worker отвечает за офлайн-режим и фоновую синхронизацию.</p>
+  </article>
+  <article class="card card--accent2">
+    <h3>Web App Manifest</h3>
+    <p>JSON-файл с описанием приложения: название, иконки разных размеров, основной цвет темы, ориентация экрана и стартовый URL. Именно манифест сообщает браузеру, что сайт можно «установить», и как будет выглядеть его значок на рабочем столе.</p>
+  </article>
+  <article class="card card--primary">
+    <h3>Cache API и стратегии кэширования</h3>
+    <p>Программный интерфейс для хранения пар «запрос → ответ» на устройстве пользователя. Service Worker использует Cache API, чтобы решить, какую стратегию применить: «сначала кэш», «сначала сеть» или «сеть с резервным кэшем» — в зависимости от типа контента.</p>
+  </article>
+  <article class="card">
+    <h3>Push API и Notifications API</h3>
+    <p>Позволяют серверу присылать уведомления пользователю, даже если сайт в этот момент не открыт в браузере — так же, как это делают нативные приложения. Требуют явного разрешения пользователя и защищённого соединения HTTPS.</p>
+  </article>
+</section>
+
+<section>
+  <h2>Поддержка в браузерах</h2>
+  <p>Не все технологии одинаково поддерживаются во всех браузерах — это стоит учитывать при проектировании PWA, чтобы сайт «прогрессивно» улучшался там, где API доступен, и оставался рабочим там, где его нет.</p>
+  <div class="table-wrap">
+    <table class="data-table">
+      <caption>Поддержка ключевых технологий PWA в актуальных версиях браузеров (данные обобщены по открытым отчётам о совместимости)</caption>
+      <thead>
+        <tr>
+          <th scope="col">Технология</th>
+          <th scope="col">Chrome / Edge</th>
+          <th scope="col">Firefox</th>
+          <th scope="col">Safari (macOS/iOS)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Service Worker</th>
+          <td data-positive>Полная</td>
+          <td data-positive>Полная</td>
+          <td data-positive>Полная (с 11.1+)</td>
+        </tr>
+        <tr>
+          <th scope="row">Web App Manifest</th>
+          <td data-positive>Полная</td>
+          <td data-positive>Полная</td>
+          <td data-negative>Частичная</td>
+        </tr>
+        <tr>
+          <th scope="row">Установка «на рабочий стол»</th>
+          <td data-positive>Да</td>
+          <td data-negative>Ограниченно</td>
+          <td data-negative>Только iOS, вручную</td>
+        </tr>
+        <tr>
+          <th scope="row">Push-уведомления</th>
+          <td data-positive>Да</td>
+          <td data-positive>Да</td>
+          <td data-negative>С iOS 16.4+</td>
+        </tr>
+        <tr>
+          <th scope="row">Background Sync</th>
+          <td data-positive>Да</td>
+          <td data-negative>Нет</td>
+          <td data-negative>Нет</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-muted">Актуальные данные о поддержке всегда стоит уточнять на caniuse.com перед запуском проекта в продакшен.</p>
+</section>
+
+</div>
+<aside class="layout__aside" aria-label="Дополнительная информация">
+
+<div class="sidebar__block">
+  <p class="sidebar__title">Глоссарий терминов</p>
+  <ul class="sidebar__list">
+    <li><strong>App Shell</strong> — минимальный HTML/CSS/JS каркас интерфейса</li>
+    <li><strong>HTTPS</strong> — обязательное защищённое соединение для PWA</li>
+    <li><strong>Manifest</strong> — файл настроек установки приложения</li>
+    <li><strong>Offline-first</strong> — подход «сначала офлайн, затем сеть»</li>
+    <li><strong>Lighthouse</strong> — инструмент аудита качества PWA</li>
+  </ul>
+</div>
+<div class="sidebar__banner">
+  <h4>Как это устроено внутри</h4>
+  <p>Посмотрите на модель App Shell и сравнение с нативными приложениями.</p>
+  <a class="btn" href="architecture.html">К разделу «Архитектура»</a>
+</div>
+
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <p class="footer__title">PWA.Учебник</p>
+        <p>Учебный сайт о прогрессивных веб-приложениях: теория, технологии, практика разработки и тестирования. Материалы подготовлены как курсовой проект по фронтенд-разработке.</p>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Разделы</p>
+        <ul class="footer__list">
+          <li><a href="technologies.html">Технологии</a></li>
+          <li><a href="architecture.html">Архитектура</a></li>
+          <li><a href="development.html">Разработка</a></li>
+          <li><a href="testing.html">Тестирование</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Ресурсы</p>
+        <ul class="footer__list">
+          <li><a href="examples.html">Примеры PWA</a></li>
+          <li><a href="resources.html">Полезные ссылки</a></li>
+          <li><a href="advantages.html">Плюсы и минусы</a></li>
+          <li><a href="history.html">История PWA</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Контакты</p>
+        <ul class="footer__list">
+          <li><a href="mailto:study-project@example.com">study-project@example.com</a></li>
+          <li><a href="contact.html">Форма обратной связи</a></li>
+          <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub репозиторий</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; <span data-year>2026</span> Учебный проект «PWA.Учебник». Материал подготовлен в образовательных целях.</span>
+      <span>Фреймворк вёрстки: Marx CSS</span>
+    </div>
+  </div>
+</footer>
+<script src="js/script.js" defer></script>
+</body>
+</html>

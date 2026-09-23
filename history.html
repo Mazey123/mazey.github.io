@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>История PWA — PWA.Учебник</title>
+<meta name="description" content="Как веб-приложения эволюционировали от статичных страниц до прогрессивных веб-приложений: ключевые даты и события.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E3A5F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/marx-css/css/marx.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к основному содержанию</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="logo" href="index.html">
+      <img class="logo__mark" src="images/logo.svg" alt="" width="36" height="36">
+      <span class="logo__text">PWA.Учебник<small>прогрессивные веб-приложения</small></span>
+    </a>
+    <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Основная навигация">
+      <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+          <li class="nav__item"><a class="nav__link nav__link--active" href="history.html" aria-current="page">История</a></li>
+          <li class="nav__item"><a class="nav__link" href="technologies.html">Технологии</a></li>
+          <li class="nav__item"><a class="nav__link" href="architecture.html">Архитектура</a></li>
+          <li class="nav__item"><a class="nav__link" href="advantages.html">Плюсы и минусы</a></li>
+          <li class="nav__item"><a class="nav__link" href="examples.html">Примеры</a></li>
+          <li class="nav__item"><a class="nav__link" href="development.html">Разработка</a></li>
+          <li class="nav__item"><a class="nav__link" href="testing.html">Тестирование</a></li>
+          <li class="nav__item"><a class="nav__link" href="resources.html">Ресурсы</a></li>
+          <li class="nav__item"><a class="nav__link" href="contact.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="layout">
+<div class="layout__main">
+
+<section>
+  <span class="eyebrow">История</span>
+  <h1>От статичных страниц к прогрессивным приложениям</h1>
+  <p>Прогрессивные веб-приложения не появились одномоментно — это результат почти двадцати лет развития веб-технологий, в течение которых браузеры постепенно получали возможности, ранее доступные только нативным приложениям: офлайн-хранилище, фоновые процессы, push-уведомления и установку на устройство.</p>
+</section>
+
+<section>
+  <h2>Хронология ключевых событий</h2>
+  <ol class="timeline">
+    <li class="timeline__item">
+      <span class="timeline__year">2007</span>
+      <h3>Веб-приложения на iPhone</h3>
+      <p>На запуске первого iPhone Стив Джобс предложил разработчикам создавать веб-приложения, которые можно добавить на домашний экран через Safari — прообраз будущих PWA, ещё без офлайн-режима.</p>
+    </li>
+    <li class="timeline__item">
+      <span class="timeline__year">2014–2015</span>
+      <h3>Появление Service Worker</h3>
+      <p>Рабочая группа W3C формализует спецификацию Service Worker — фонового скрипта, который перехватывает сетевые запросы и позволяет управлять кэшем страницы.</p>
+    </li>
+    <li class="timeline__item">
+      <span class="timeline__year">2015</span>
+      <h3>Термин «Progressive Web App»</h3>
+      <p>Дизайнер Фрэнсис Берриман и инженер Google Алекс Расселл вводят термин «Progressive Web Apps», описывающий сайты, которые постепенно приобретают свойства нативных приложений.</p>
+    </li>
+    <li class="timeline__item">
+      <span class="timeline__year">2016</span>
+      <h3>Google продвигает PWA</h3>
+      <p>На конференции Google I/O появляются инструменты для разработчиков — Lighthouse и чек-лист PWA, а Chrome добавляет баннер «Добавить на главный экран».</p>
+    </li>
+    <li class="timeline__item">
+      <span class="timeline__year">2018</span>
+      <h3>Поддержка в Windows и Safari</h3>
+      <p>Microsoft добавляет возможность публиковать PWA в Microsoft Store, а Apple добавляет базовую поддержку Service Worker в Safari — с рядом ограничений на офлайн-хранилище.</p>
+    </li>
+    <li class="timeline__item">
+      <span class="timeline__year">2019–2020</span>
+      <h3>Массовое внедрение</h3>
+      <p>Крупные сервисы — Twitter Lite, Starbucks, AliExpress, Pinterest — публикуют отчёты о росте вовлечённости после перехода на PWA-архитектуру мобильных версий.</p>
+    </li>
+    <li class="timeline__item">
+      <span class="timeline__year">2021 — наши дни</span>
+      <h3>Project Fugu и новые возможности</h3>
+      <p>Совместная инициатива браузерных вендоров «Project Fugu» добавляет веб-приложениям доступ к файловой системе, Bluetooth, USB и другим возможностям устройства, сокращая разрыв с нативными приложениями.</p>
+    </li>
+  </ol>
+</section>
+
+</div>
+<aside class="layout__aside" aria-label="Дополнительная информация">
+
+<div class="sidebar__block">
+  <p class="sidebar__title">Люди и организации</p>
+  <ul class="sidebar__list">
+    <li><strong>Алекс Расселл</strong> — соавтор термина PWA, инженер Google Chrome</li>
+    <li><strong>Фрэнсис Берриман</strong> — дизайнер, соавтор термина PWA</li>
+    <li><strong>W3C</strong> — рабочая группа, стандартизировавшая Service Worker</li>
+    <li><strong>Project Fugu</strong> — межбраузерная инициатива по расширению веб-API</li>
+  </ul>
+</div>
+<div class="sidebar__banner">
+  <h4>Как это работает сегодня</h4>
+  <p>Узнайте, какие именно технологии браузера делают PWA возможным.</p>
+  <a class="btn" href="technologies.html">К разделу «Технологии»</a>
+</div>
+
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <p class="footer__title">PWA.Учебник</p>
+        <p>Учебный сайт о прогрессивных веб-приложениях: теория, технологии, практика разработки и тестирования. Материалы подготовлены как курсовой проект по фронтенд-разработке.</p>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Разделы</p>
+        <ul class="footer__list">
+          <li><a href="technologies.html">Технологии</a></li>
+          <li><a href="architecture.html">Архитектура</a></li>
+          <li><a href="development.html">Разработка</a></li>
+          <li><a href="testing.html">Тестирование</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Ресурсы</p>
+        <ul class="footer__list">
+          <li><a href="examples.html">Примеры PWA</a></li>
+          <li><a href="resources.html">Полезные ссылки</a></li>
+          <li><a href="advantages.html">Плюсы и минусы</a></li>
+          <li><a href="history.html">История PWA</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Контакты</p>
+        <ul class="footer__list">
+          <li><a href="mailto:study-project@example.com">study-project@example.com</a></li>
+          <li><a href="contact.html">Форма обратной связи</a></li>
+          <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub репозиторий</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; <span data-year>2026</span> Учебный проект «PWA.Учебник». Материал подготовлен в образовательных целях.</span>
+      <span>Фреймворк вёрстки: Marx CSS</span>
+    </div>
+  </div>
+</footer>
+<script src="js/script.js" defer></script>
+</body>
+</html>

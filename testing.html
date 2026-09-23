@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тестирование и аудит — PWA.Учебник</title>
+<meta name="description" content="Как проверить качество прогрессивного веб-приложения с помощью Lighthouse, PWA Builder и других инструментов.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E3A5F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/marx-css/css/marx.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к основному содержанию</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="logo" href="index.html">
+      <img class="logo__mark" src="images/logo.svg" alt="" width="36" height="36">
+      <span class="logo__text">PWA.Учебник<small>прогрессивные веб-приложения</small></span>
+    </a>
+    <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Основная навигация">
+      <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+          <li class="nav__item"><a class="nav__link" href="history.html">История</a></li>
+          <li class="nav__item"><a class="nav__link" href="technologies.html">Технологии</a></li>
+          <li class="nav__item"><a class="nav__link" href="architecture.html">Архитектура</a></li>
+          <li class="nav__item"><a class="nav__link" href="advantages.html">Плюсы и минусы</a></li>
+          <li class="nav__item"><a class="nav__link" href="examples.html">Примеры</a></li>
+          <li class="nav__item"><a class="nav__link" href="development.html">Разработка</a></li>
+          <li class="nav__item"><a class="nav__link nav__link--active" href="testing.html" aria-current="page">Тестирование</a></li>
+          <li class="nav__item"><a class="nav__link" href="resources.html">Ресурсы</a></li>
+          <li class="nav__item"><a class="nav__link" href="contact.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="layout">
+<div class="layout__main">
+
+<section>
+  <span class="eyebrow">Качество</span>
+  <h1>Как проверить, что приложение действительно прогрессивное</h1>
+  <p>Главный инструмент проверки PWA — <strong>Lighthouse</strong>, встроенный в Chrome DevTools аудит от Google. Он анализирует страницу по нескольким категориям и указывает конкретные пункты, которые нужно исправить.</p>
+</section>
+
+<section>
+  <h2>Категории аудита Lighthouse</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <caption>Категории отчёта Lighthouse и типичные проблемы</caption>
+      <thead>
+        <tr>
+          <th scope="col">Категория</th>
+          <th scope="col">Что проверяет</th>
+          <th scope="col">Типичная проблема</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Performance</th>
+          <td>Скорость загрузки и отклика интерфейса</td>
+          <td>Слишком крупные изображения без srcset</td>
+        </tr>
+        <tr>
+          <th scope="row">Installable (PWA)</th>
+          <td>Наличие манифеста, иконок и Service Worker</td>
+          <td>Отсутствует поле <code>start_url</code> в манифесте</td>
+        </tr>
+        <tr>
+          <th scope="row">Best Practices</th>
+          <td>Безопасность соединения, актуальные API</td>
+          <td>Сайт частично загружается по HTTP</td>
+        </tr>
+        <tr>
+          <th scope="row">Accessibility</th>
+          <td>Контраст, альтернативный текст, ARIA-атрибуты</td>
+          <td>Изображения без атрибута alt</td>
+        </tr>
+        <tr>
+          <th scope="row">SEO</th>
+          <td>Индексируемость и мета-теги</td>
+          <td>Отсутствует мета-описание страницы</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Инструменты для проверки</h2>
+  <div class="card-grid card-grid--2">
+    <article class="card">
+      <h3>Chrome DevTools → Application</h3>
+      <p>Вкладка «Application» показывает зарегистрированные Service Worker'ы, содержимое кэша и позволяет вручную имитировать отключение сети для проверки офлайн-режима.</p>
+    </article>
+    <article class="card card--accent2">
+      <h3>Lighthouse CI</h3>
+      <p>Консольная версия Lighthouse запускается командой <code>npx lighthouse https://адрес-сайта --view</code> и удобна для автоматической проверки при каждом деплое.</p>
+    </article>
+    <article class="card card--primary">
+      <h3>PWA Builder</h3>
+      <p>Сервис Microsoft, который анализирует манифест и Service Worker сайта, а также помогает упаковать готовое PWA для публикации в Microsoft Store.</p>
+    </article>
+    <article class="card">
+      <h3>WebPageTest</h3>
+      <p>Независимый сервис для замера реальной скорости загрузки с разных локаций и типов подключения — полезен для проверки, как приложение ведёт себя на медленном интернете.</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2>Проверка кроссбраузерности</h2>
+  <p>Помимо аудита PWA, важно вручную проверить сайт в последних версиях Chrome, Firefox и Safari — на разных операционных системах поведение установки и уведомлений отличается, как показано в таблице на странице <a href="technologies.html">«Технологии»</a>.</p>
+</section>
+
+</div>
+<aside class="layout__aside" aria-label="Дополнительная информация">
+
+<div class="sidebar__block">
+  <p class="sidebar__title">Полезные команды</p>
+  <ul class="sidebar__list">
+    <li><code>npx lighthouse URL --view</code></li>
+    <li><code>npx http-server -S -C cert.pem</code></li>
+    <li><code>navigator.serviceWorker.getRegistrations()</code></li>
+  </ul>
+</div>
+<div class="sidebar__banner">
+  <h4>Нужны примеры кода?</h4>
+  <p>Вернитесь к пошаговому руководству по разработке.</p>
+  <a class="btn" href="development.html">К руководству</a>
+</div>
+
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <p class="footer__title">PWA.Учебник</p>
+        <p>Учебный сайт о прогрессивных веб-приложениях: теория, технологии, практика разработки и тестирования. Материалы подготовлены как курсовой проект по фронтенд-разработке.</p>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Разделы</p>
+        <ul class="footer__list">
+          <li><a href="technologies.html">Технологии</a></li>
+          <li><a href="architecture.html">Архитектура</a></li>
+          <li><a href="development.html">Разработка</a></li>
+          <li><a href="testing.html">Тестирование</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Ресурсы</p>
+        <ul class="footer__list">
+          <li><a href="examples.html">Примеры PWA</a></li>
+          <li><a href="resources.html">Полезные ссылки</a></li>
+          <li><a href="advantages.html">Плюсы и минусы</a></li>
+          <li><a href="history.html">История PWA</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Контакты</p>
+        <ul class="footer__list">
+          <li><a href="mailto:study-project@example.com">study-project@example.com</a></li>
+          <li><a href="contact.html">Форма обратной связи</a></li>
+          <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub репозиторий</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; <span data-year>2026</span> Учебный проект «PWA.Учебник». Материал подготовлен в образовательных целях.</span>
+      <span>Фреймворк вёрстки: Marx CSS</span>
+    </div>
+  </div>
+</footer>
+<script src="js/script.js" defer></script>
+</body>
+</html>

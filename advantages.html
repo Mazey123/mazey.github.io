@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Преимущества и ограничения — PWA.Учебник</title>
+<meta name="description" content="Сильные стороны прогрессивных веб-приложений и реальные технические ограничения, которые стоит учитывать перед стартом проекта.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E3A5F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/marx-css/css/marx.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к основному содержанию</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="logo" href="index.html">
+      <img class="logo__mark" src="images/logo.svg" alt="" width="36" height="36">
+      <span class="logo__text">PWA.Учебник<small>прогрессивные веб-приложения</small></span>
+    </a>
+    <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Основная навигация">
+      <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+          <li class="nav__item"><a class="nav__link" href="history.html">История</a></li>
+          <li class="nav__item"><a class="nav__link" href="technologies.html">Технологии</a></li>
+          <li class="nav__item"><a class="nav__link" href="architecture.html">Архитектура</a></li>
+          <li class="nav__item"><a class="nav__link nav__link--active" href="advantages.html" aria-current="page">Плюсы и минусы</a></li>
+          <li class="nav__item"><a class="nav__link" href="examples.html">Примеры</a></li>
+          <li class="nav__item"><a class="nav__link" href="development.html">Разработка</a></li>
+          <li class="nav__item"><a class="nav__link" href="testing.html">Тестирование</a></li>
+          <li class="nav__item"><a class="nav__link" href="resources.html">Ресурсы</a></li>
+          <li class="nav__item"><a class="nav__link" href="contact.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="layout">
+<div class="layout__main">
+
+<section>
+  <span class="eyebrow">Плюсы и минусы</span>
+  <h1>Когда PWA действительно помогает, а когда — нет</h1>
+  <p>PWA — не универсальное решение для любой задачи. Ниже собраны основные преимущества подхода и честный список ограничений, которые встречаются на практике.</p>
+</section>
+
+<section>
+  <h2>Преимущества</h2>
+  <div class="card-grid card-grid--2">
+    <article class="card">
+      <h3>Одна кодовая база</h3>
+      <p>Команда разрабатывает и поддерживает один проект вместо трёх (веб, iOS, Android), что снижает затраты и ускоряет выпуск обновлений.</p>
+    </article>
+    <article class="card">
+      <h3>Быстрый доступ без установки из стора</h3>
+      <p>Пользователь может начать работать с сайтом сразу по ссылке, а установить его «в один клик» позже — без ожидания модерации в магазине приложений.</p>
+    </article>
+    <article class="card card--accent2">
+      <h3>Экономия трафика и заряда батареи</h3>
+      <p>Локальное кэширование ресурсов снижает объём повторно скачиваемых данных, что особенно заметно на медленном мобильном интернете.</p>
+    </article>
+    <article class="card card--accent2">
+      <h3>Более высокая вовлечённость</h3>
+      <p>Push-уведомления и значок на главном экране напоминают о сервисе так же эффективно, как нативное приложение, повышая частоту возвращений.</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2>Ограничения и вызовы</h2>
+  <div class="card-grid card-grid--2">
+    <article class="card card--primary">
+      <h3>Неполная поддержка в iOS Safari</h3>
+      <p>Apple исторически ограничивает возможности PWA на iOS: меньший лимит офлайн-хранилища, более позднее появление push-уведомлений, отсутствие фоновой синхронизации.</p>
+    </article>
+    <article class="card card--primary">
+      <h3>Низкая «открываемость» без стора</h3>
+      <p>Пользователи привыкли искать приложения в App Store и Google Play; PWA сложнее обнаружить без прямой ссылки или продвижения через сам сайт.</p>
+    </article>
+    <article class="card card--primary">
+      <h3>Ограниченный доступ к устройству</h3>
+      <p>Некоторые возможности — глубокая интеграция с камерой, датчиками, Bluetooth — до сих пор доступны нативным приложениям в большем объёме, чем браузеру.</p>
+    </article>
+    <article class="card card--primary">
+      <h3>Сложность отладки офлайн-логики</h3>
+      <p>Продумывание стратегий кэширования и обработка конфликтов данных при восстановлении сети требует дополнительного проектирования и тестирования.</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2>Подходит ли PWA вашему проекту</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <caption>Быстрый ориентир по типу проекта</caption>
+      <thead>
+        <tr><th scope="col">Тип проекта</th><th scope="col">Рекомендация</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Интернет-магазин, новостной сайт, блог</th><td data-positive>PWA подходит хорошо</td></tr>
+        <tr><th scope="row">Соцсеть или мессенджер с лёгким функционалом</th><td data-positive>PWA подходит хорошо</td></tr>
+        <tr><th scope="row">Игры с высокой нагрузкой на графику</th><td data-negative>Лучше нативное приложение</td></tr>
+        <tr><th scope="row">Приложения с глубокой интеграцией в ОС (банкинг с биометрией и т.д.)</th><td data-negative>Требуется отдельная оценка</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</div>
+<aside class="layout__aside" aria-label="Дополнительная информация">
+
+<div class="sidebar__block">
+  <p class="sidebar__title">Частые заблуждения</p>
+  <ul class="sidebar__list">
+    <li>«PWA заменяет нативные приложения полностью» — не всегда</li>
+    <li>«PWA работает одинаково во всех браузерах» — есть различия</li>
+    <li>«PWA нельзя найти в поиске» — наоборот, страницы индексируются</li>
+    <li>«Установка PWA требует прав администратора» — не требует</li>
+  </ul>
+</div>
+<div class="sidebar__banner">
+  <h4>Живые примеры</h4>
+  <p>Как крупные компании оценили эти плюсы и минусы на практике.</p>
+  <a class="btn" href="examples.html">Смотреть кейсы</a>
+</div>
+
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <p class="footer__title">PWA.Учебник</p>
+        <p>Учебный сайт о прогрессивных веб-приложениях: теория, технологии, практика разработки и тестирования. Материалы подготовлены как курсовой проект по фронтенд-разработке.</p>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Разделы</p>
+        <ul class="footer__list">
+          <li><a href="technologies.html">Технологии</a></li>
+          <li><a href="architecture.html">Архитектура</a></li>
+          <li><a href="development.html">Разработка</a></li>
+          <li><a href="testing.html">Тестирование</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Ресурсы</p>
+        <ul class="footer__list">
+          <li><a href="examples.html">Примеры PWA</a></li>
+          <li><a href="resources.html">Полезные ссылки</a></li>
+          <li><a href="advantages.html">Плюсы и минусы</a></li>
+          <li><a href="history.html">История PWA</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Контакты</p>
+        <ul class="footer__list">
+          <li><a href="mailto:study-project@example.com">study-project@example.com</a></li>
+          <li><a href="contact.html">Форма обратной связи</a></li>
+          <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub репозиторий</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; <span data-year>2026</span> Учебный проект «PWA.Учебник». Материал подготовлен в образовательных целях.</span>
+      <span>Фреймворк вёрстки: Marx CSS</span>
+    </div>
+  </div>
+</footer>
+<script src="js/script.js" defer></script>
+</body>
+</html>

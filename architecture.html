@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Архитектура PWA — PWA.Учебник</title>
+<meta name="description" content="Модель App Shell и сравнение прогрессивного веб-приложения с нативным приложением и обычным сайтом.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E3A5F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/marx-css/css/marx.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к основному содержанию</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="logo" href="index.html">
+      <img class="logo__mark" src="images/logo.svg" alt="" width="36" height="36">
+      <span class="logo__text">PWA.Учебник<small>прогрессивные веб-приложения</small></span>
+    </a>
+    <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Основная навигация">
+      <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+          <li class="nav__item"><a class="nav__link" href="history.html">История</a></li>
+          <li class="nav__item"><a class="nav__link" href="technologies.html">Технологии</a></li>
+          <li class="nav__item"><a class="nav__link nav__link--active" href="architecture.html" aria-current="page">Архитектура</a></li>
+          <li class="nav__item"><a class="nav__link" href="advantages.html">Плюсы и минусы</a></li>
+          <li class="nav__item"><a class="nav__link" href="examples.html">Примеры</a></li>
+          <li class="nav__item"><a class="nav__link" href="development.html">Разработка</a></li>
+          <li class="nav__item"><a class="nav__link" href="testing.html">Тестирование</a></li>
+          <li class="nav__item"><a class="nav__link" href="resources.html">Ресурсы</a></li>
+          <li class="nav__item"><a class="nav__link" href="contact.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="layout layout--aside-left">
+<div class="layout__main">
+
+<section>
+  <span class="eyebrow">Архитектура</span>
+  <h1>Модель App Shell</h1>
+  <p>Большинство PWA строится по модели <strong>App Shell</strong> — «каркаса приложения». Идея в том, чтобы разделить интерфейс на две части: редко меняющийся каркас (шапка, меню, разметка экрана) и часто обновляемый контент (тексты, изображения, данные). Каркас кэшируется Service Worker'ом при первом посещении и мгновенно отрисовывается при каждом следующем открытии, пока актуальный контент подгружается из сети.</p>
+
+  <figure>
+    <svg viewBox="0 0 640 220" role="img" aria-labelledby="shellTitle" style="width:100%;height:auto;background:#fff;border:1px solid var(--color-border);border-radius:10px">
+      <title id="shellTitle">Схема модели App Shell: каркас приложения кэшируется, контент загружается динамически</title>
+      <rect x="16" y="16" width="290" height="188" rx="8" fill="#EAF6F4" stroke="#00B8A9" stroke-width="2"/>
+      <text x="161" y="42" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="15" fill="#037e72">App Shell (кэш)</text>
+      <rect x="34" y="56" width="254" height="18" rx="4" fill="#00B8A9"/>
+      <rect x="34" y="82" width="70" height="100" rx="4" fill="#ffffff" stroke="#00B8A9"/>
+      <rect x="112" y="82" width="176" height="46" rx="4" fill="#ffffff" stroke="#00B8A9"/>
+      <rect x="112" y="134" width="176" height="48" rx="4" fill="#ffffff" stroke="#00B8A9"/>
+      <text x="70" y="136" text-anchor="middle" font-size="11" fill="#037e72">Меню</text>
+
+      <rect x="334" y="16" width="290" height="188" rx="8" fill="#FFF6E0" stroke="#FFB100" stroke-width="2"/>
+      <text x="479" y="42" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="15" fill="#8a5c00">Контент (сеть / API)</text>
+      <rect x="352" y="56" width="254" height="60" rx="4" fill="#ffffff" stroke="#FFB100"/>
+      <rect x="352" y="124" width="120" height="60" rx="4" fill="#ffffff" stroke="#FFB100"/>
+      <rect x="480" y="124" width="126" height="60" rx="4" fill="#ffffff" stroke="#FFB100"/>
+
+      <path d="M310 108 h16" stroke="#101826" stroke-width="2" marker-end="url(#arrow)"/>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 z" fill="#101826"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption class="text-muted">Каркас (слева) отрисовывается мгновенно из локального кэша; актуальные данные (справа) подгружаются отдельно и могут обновляться независимо.</figcaption>
+  </figure>
+
+  <p>Такое разделение даёт два эффекта: во-первых, пользователь почти сразу видит знакомый интерфейс вместо белого экрана загрузки; во-вторых, приложение способно показать хотя бы каркас и последние закэшированные данные, даже если сеть недоступна.</p>
+</section>
+
+<section>
+  <h2>PWA, нативное приложение или обычный сайт?</h2>
+  <p>Выбор архитектуры зависит от задач проекта. Таблица ниже сравнивает три подхода по ключевым для бизнеса и разработки параметрам.</p>
+  <div class="table-wrap">
+    <table class="data-table">
+      <caption>Сравнение прогрессивного веб-приложения, нативного приложения и классического сайта</caption>
+      <thead>
+        <tr>
+          <th scope="col">Параметр</th>
+          <th scope="col">PWA</th>
+          <th scope="col">Нативное приложение</th>
+          <th scope="col">Обычный сайт</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Установка на устройство</th>
+          <td data-positive>Да, из браузера</td>
+          <td data-positive>Да, из магазина</td>
+          <td data-negative>Нет</td>
+        </tr>
+        <tr>
+          <th scope="row">Работа офлайн</th>
+          <td data-positive>Частично, через кэш</td>
+          <td data-positive>Полностью</td>
+          <td data-negative>Нет</td>
+        </tr>
+        <tr>
+          <th scope="row">Push-уведомления</th>
+          <td data-positive>Да (с оговорками для iOS)</td>
+          <td data-positive>Да</td>
+          <td data-negative>Нет</td>
+        </tr>
+        <tr>
+          <th scope="row">Обновление версии</th>
+          <td data-positive>Автоматически, без модерации</td>
+          <td data-negative>Через магазин приложений</td>
+          <td data-positive>Автоматически</td>
+        </tr>
+        <tr>
+          <th scope="row">Индексация поисковиками</th>
+          <td data-positive>Да</td>
+          <td data-negative>Нет</td>
+          <td data-positive>Да</td>
+        </tr>
+        <tr>
+          <th scope="row">Стоимость разработки</th>
+          <td data-positive>Одна кодовая база</td>
+          <td data-negative>Отдельно под iOS и Android</td>
+          <td data-positive>Одна кодовая база</td>
+        </tr>
+        <tr>
+          <th scope="row">Доступ к API устройства</th>
+          <td data-negative>Ограниченный</td>
+          <td data-positive>Полный</td>
+          <td data-negative>Минимальный</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</div>
+<aside class="layout__aside" aria-label="Дополнительная информация">
+
+<div class="sidebar__banner">
+  <h4>Соберите своё приложение</h4>
+  <p>Практическое руководство: от манифеста до первого Service Worker.</p>
+  <a class="btn" href="development.html">Перейти к руководству</a>
+</div>
+<div class="sidebar__block">
+  <p class="sidebar__title">Смежные разделы</p>
+  <ul class="sidebar__list">
+    <li><a href="technologies.html">Технологии, лежащие в основе</a></li>
+    <li><a href="advantages.html">Преимущества и ограничения</a></li>
+    <li><a href="testing.html">Как проверить архитектуру</a></li>
+  </ul>
+</div>
+
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <p class="footer__title">PWA.Учебник</p>
+        <p>Учебный сайт о прогрессивных веб-приложениях: теория, технологии, практика разработки и тестирования. Материалы подготовлены как курсовой проект по фронтенд-разработке.</p>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Разделы</p>
+        <ul class="footer__list">
+          <li><a href="technologies.html">Технологии</a></li>
+          <li><a href="architecture.html">Архитектура</a></li>
+          <li><a href="development.html">Разработка</a></li>
+          <li><a href="testing.html">Тестирование</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Ресурсы</p>
+        <ul class="footer__list">
+          <li><a href="examples.html">Примеры PWA</a></li>
+          <li><a href="resources.html">Полезные ссылки</a></li>
+          <li><a href="advantages.html">Плюсы и минусы</a></li>
+          <li><a href="history.html">История PWA</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Контакты</p>
+        <ul class="footer__list">
+          <li><a href="mailto:study-project@example.com">study-project@example.com</a></li>
+          <li><a href="contact.html">Форма обратной связи</a></li>
+          <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub репозиторий</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; <span data-year>2026</span> Учебный проект «PWA.Учебник». Материал подготовлен в образовательных целях.</span>
+      <span>Фреймворк вёрстки: Marx CSS</span>
+    </div>
+  </div>
+</footer>
+<script src="js/script.js" defer></script>
+</body>
+</html>
