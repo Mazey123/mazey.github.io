@@ -247,6 +247,7 @@ main {
 /* ---------- 5. Макет: контент + сайдбар ---------- */
 .layout {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 32px;
   padding: 40px 0 64px;
   max-width: var(--container-w);
